@@ -1,6 +1,8 @@
 import { SocialItem } from "../types/SocialItem";
 import { Linkitem } from "../types/LinkItem";
 import { FacebookIcon } from "../components/FacebookIcon";
+import { XIcon } from "../components/XIcon";
+import { InstagramIcon } from "../components/InstagramIcon";
 
 export const nav: Linkitem[] = [
     {
@@ -53,12 +55,12 @@ export const social: SocialItem[] = [
     },
     {
         name: "X",
-        path: "tel:+13123613800",
-        svg: FacebookIcon
+        path: "https://www.facebook.com/salsinroanoke",
+        svg: XIcon
     },
     {
         name: "Instagram",
-        path: "mailto:contact@theroanokerestaurant.com",
-        svg: FacebookIcon
+        path: "https://www.facebook.com/salsinroanoke",
+        svg: InstagramIcon
     }
 ]
