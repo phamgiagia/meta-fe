@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",                      // JavaScript version to compile to
+      "module": "ESNext",                      // Module system
+      "lib": ["DOM", "DOM.Iterable", "ESNext"], // Available libraries
+      "jsx": "react-jsx",                      // JSX handling
+      "strict": true,                          // Enable strict type-checking
+      "moduleResolution": "node",             // Resolve modules like Node.js
+      "baseUrl": ".",                         // Base path for imports
+      "paths": {                              // Optional: Resolve custom paths
+        "@components/*": ["src/components/*"]
+      },
+      "resolveJsonModule": true,             // Support importing JSON files
+      "esModuleInterop": true,               // Handle CommonJS modules
+      "skipLibCheck": true                   // Skip type checking of node_modules
+    },
+    "include": ["src"],                      // Files to include in the project
+    "exclude": ["node_modules"]              // Exclude unnecessary files
+  }
+  
