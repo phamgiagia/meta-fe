@@ -1,9 +1,15 @@
+import { useState } from "react";
 import { nav } from "../data/nav";
-
-const MenuItem = () => {
-    return <ul>
-        {nav.map(item => <li key={item.name}><a href={item.path}>{item.name}</a></li>)}
-    </ul>
+interface MenuItemProps {
+    handleClick: () => void;
+}
+const MenuItem: React.FC<MenuItemProps> = ({ handleClick }) => {
+    return <nav className="mobile-menu">
+        <span onClick={handleClick}><CloseMenuIcon /></span>
+        <ul>
+            {nav.map(item => <li key={item.name}><a href={item.path}>{item.name}</a></li>)}
+        </ul>
+    </nav>
 }
 
 const CartIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
@@ -18,12 +24,19 @@ const CloseMenuIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width={24} h
 
 
 const NavMobile = () => {
-    return <nav className="nav-mobile">
-        {/* menu icon toggle */}
-        <MenuIcon />
-        <img src="/assets/Logo.svg" alt="Little Lemon Logo" />
-        {/* cart icon toggle */}
-        <CartIcon />
-    </nav>
+    const [showMenu, setShowMenu] = useState<boolean>(false);
+    const handleToggle = () => {
+        setShowMenu(state => !state)
+    }
+    return <>
+        <nav className="nav-mobile">
+            {/* menu icon toggle */}
+            <span onClick={handleToggle}><MenuIcon /></span>
+            <img src="/assets/Logo.svg" alt="Little Lemon Logo" />
+            {/* cart icon toggle */}
+            <CartIcon />
+        </nav>
+        {showMenu && <MenuItem handleClick={handleToggle} />}
+    </>
 }
 export default NavMobile;
