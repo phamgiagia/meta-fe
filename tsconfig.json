@@ -8,7 +8,8 @@
       "moduleResolution": "node",             // Resolve modules like Node.js
       "baseUrl": ".",                         // Base path for imports
       "paths": {                              // Optional: Resolve custom paths
-        "@components/*": ["src/components/*"]
+        "@components/*": ["src/components/*"],
+        "@/*": ["src/*"],
       },
       "resolveJsonModule": true,             // Support importing JSON files
       "esModuleInterop": true,               // Handle CommonJS modules
