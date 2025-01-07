@@ -2,7 +2,7 @@ import { nav } from "../data/nav";
 
 
 const Nav = () => {
-    return <nav>
+    return <nav className="nav-desktop">
         <img src="/assets/Logo.svg" alt="Little Lemon Logo" />
         <ul>
             {nav.map(item=><li key={item.name}><a href={item.path}>{item.name}</a></li>)}

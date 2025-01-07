@@ -5,22 +5,22 @@ const Footer = () => {
     return <footer>
         <img src="/assets/Logo.svg" alt="Little Lemon Logo" />
         <section>
-            <h3>
+            <h4>
                 Little Lemon
-            </h3>
-            {nav.map(item => <li key={item.name}><a href={item.path}>{item.name}</a></li>)}
+            </h4>
+            <ul>{nav.map(item => <li key={item.name}><a href={item.path}>{item.name}</a></li>)}</ul>
         </section>
         <section>
-            <h3>
+            <h4>
                 Contact
-            </h3>
-            {contact.map(item => <li key={item.name}><a href={item.path}>{item.name}</a></li>)}
+            </h4>
+            <ul>{contact.map(item => <li key={item.name}><a href={item.path}>{item.name}</a></li>)}</ul>
         </section>
         <section>
-            <h3>
+            <h4>
                 Social Media Links
-            </h3>
-            {social.map(item => <li key={item.name}><item.svg /><a href={item.path}>{item.name}</a></li>)}
+            </h4>
+            <ul>{social.map(item => <li key={item.name}><item.svg /><a href={item.path}>{item.name}</a></li>)}</ul>
         </section>
     </footer>
 }

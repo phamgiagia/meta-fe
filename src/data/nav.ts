@@ -1,8 +1,8 @@
 import { SocialItem } from "../types/SocialItem";
 import { Linkitem } from "../types/LinkItem";
-import { FacebookIcon } from "../components/FacebookIcon";
-import { XIcon } from "../components/XIcon";
-import { InstagramIcon } from "../components/InstagramIcon";
+import { FacebookIcon } from "../components/icons/FacebookIcon";
+import { XIcon } from "../components/icons/XIcon";
+import { InstagramIcon } from "../components/icons/InstagramIcon";
 
 export const nav: Linkitem[] = [
     {
