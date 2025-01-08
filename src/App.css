@@ -78,9 +78,10 @@ nav > ul {
   /* Ensures the menu takes up the full width */
   height: 100%;
   /* Ensures the menu takes up the full height */
-  background-color: black;
+  background-color: #495e57;
   /* Black background */
-  color: white;
+  /* color: #f4ce14; */
+  /* font-weight: 600; */
   /* White text */
   z-index: 9;
   /* Ensures it appears above other content */
@@ -90,7 +91,8 @@ nav > ul {
 }
 
 .mobile-menu a {
-  color: white;
+  color: #f4ce14;
+  font-weight: 600;
 }
 
 .mobile-menu ul {
@@ -230,6 +232,34 @@ h4 {
   /* ExtraBold weight */
   margin: 0;
   /* Optional: Adjust default margin */
+}
+.card-title {
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  /* ExtraBold weight */
+  margin: 0;
+  /* Optional: Adjust default margin */
+}
+
+.card-price {
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  /* ExtraBold weight */
+  margin: 0;
+  /* Optional: Adjust default margin */
+  color: #956100;
+}
+
+.card-content {
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  /* ExtraBold weight */
+  margin: 0;
+  /* Optional: Adjust default margin */
+  color: #495e57;
 }
 
 .hero {
