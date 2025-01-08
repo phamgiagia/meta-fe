@@ -3,7 +3,7 @@ type ActionButtonProps = {
 };
 
 const ActionButton: React.FC<ActionButtonProps> = ({ text }) => (
-  <a href="#" className="action-button">
+  <a href="/" className="action-button">
     {text}
   </a>
 );

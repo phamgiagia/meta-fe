@@ -12,7 +12,7 @@ export interface OrderFormValues {
 }
 
 const OrderForm: React.FC = () => {
-//   const order = useAppState((state) => state.order);
+  //   const order = useAppState((state) => state.order);
   const addOrder = useAppState((state) => state.addOrder);
   const availableTimes = useAppState((state) => state.getAvailableTime);
 
@@ -26,9 +26,17 @@ const OrderForm: React.FC = () => {
       .required("Please enter the number of guests"),
     occasion: Yup.string().required("Please select an occasion"),
   });
-
+//   const initializeTimes = () => [
+//     "17:00",
+//     "18:00",
+//     "19:00",
+//     "20:00",
+//     "21:00",
+//     "22:00",
+//   ];
+//   const updateTimes = () => {};
   // Initial form values
-  const initialValues={
+  const initialValues = {
     date: "",
     time: "",
     guests: 1,
@@ -61,7 +69,11 @@ const OrderForm: React.FC = () => {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <ErrorMessage name="date" component="div" className="error-message" />
+            <ErrorMessage
+              name="date"
+              component="div"
+              className="error-message"
+            />
             {/* {touched.date && errors.date && (
               <div className="error-message">{errors.date}</div>
             )} */}
@@ -84,7 +96,11 @@ const OrderForm: React.FC = () => {
                 </option>
               ))}
             </select>
-            <ErrorMessage name="time" component="div" className="error-message" />
+            <ErrorMessage
+              name="time"
+              component="div"
+              className="error-message"
+            />
             {/* {touched.time && errors.time && (
               <div className="error-message">{errors.time}</div>
             )} */}
@@ -103,7 +119,11 @@ const OrderForm: React.FC = () => {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <ErrorMessage name="guests" component="div" className="error-message" />
+            <ErrorMessage
+              name="guests"
+              component="div"
+              className="error-message"
+            />
             {/* {touched.guests && errors.guests && (
               <div className="error-message">{errors.guests}</div>
             )} */}
@@ -124,7 +144,11 @@ const OrderForm: React.FC = () => {
               <option value="Anniversary">Anniversary</option>
               <option value="Others">Others</option>
             </select>
-            <ErrorMessage name="occasion" component="div" className="error-message" />
+            <ErrorMessage
+              name="occasion"
+              component="div"
+              className="error-message"
+            />
             {/* {touched.occasion && errors.occasion && (
               <div className="error-message">{errors.occasion}</div>
             )} */}
