@@ -1,9 +1,10 @@
-
 type ActionButtonProps = {
-    text: string;
-}
+  text: string;
+};
 
-const ActionButton: React.FC<ActionButtonProps> = ({ text }) => <button type="button" className="action-button">
+const ActionButton: React.FC<ActionButtonProps> = ({ text }) => (
+  <a href="#" className="action-button">
     {text}
-</button>
+  </a>
+);
 export default ActionButton;
