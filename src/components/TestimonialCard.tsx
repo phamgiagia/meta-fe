@@ -8,7 +8,7 @@ export type TestimonialCardProps = {
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ rating, imgSrc, name, text }) => <>
     <p>{rating}</p>
-    <img src={imgSrc} alt={name} />
+    <img src={imgSrc} alt={name} height={100}/>
     <h4>{name}</h4>
     <p>{text}</p>
 </>

@@ -7,7 +7,7 @@ export type DishCardProps = {
 }
 
 const DishCard: React.FC<DishCardProps> = ({ title, price, content, imageSrc }) => <>
-    <img src={imageSrc} alt={title} />
+    <img src={imageSrc} alt={title} height={100}/>
     <h5 className="card-title">{title}</h5>
     <span className="card-price">{price}</span>
     <p className="card-detail">{content}</p>
