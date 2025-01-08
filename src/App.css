@@ -1,6 +1,6 @@
 body {
   margin: auto;
-  display: grid;
+  /* display: grid; */
   width: 66.67%;
 }
 
@@ -15,14 +15,14 @@ nav>ul {
   justify-content: space-evenly;
 }
 
-.nav-mobile{
+.nav-mobile {
   align-items: center;
   display: flex;
   flex-direction: row;
   padding: 10px;
 }
 
-.nav-mobile img{
+.nav-mobile img {
   flex-grow: 1;
   max-height: 40px;
 }
@@ -38,17 +38,20 @@ nav>ul {
   .nav-mobile {
     display: flex;
   }
+
   body {
     margin: auto;
-    display: grid;
+    /* display: grid; */
     width: 100%;
   }
+
   footer {
     display: flex;
     flex-direction: column;
   }
-  footer section{
-    margin:0;
+
+  footer section {
+    margin: 0;
     padding-left: 30px;
   }
 }
@@ -58,41 +61,50 @@ nav>ul {
   .nav-desktop {
     display: flex;
   }
-  footer section{
+
+  footer section {
     margin: 30px;
     width: auto;
   }
 }
 
 .mobile-menu {
-  position: fixed;         /* Fixes the element relative to the viewport */
-  top: 0;                  /* Aligns the top edge of the menu to the top of the screen */
-  left: 0;                 /* Aligns the left edge of the menu to the left of the screen */
-  width: 100%;             /* Ensures the menu takes up the full width */
-  height: 100%;            /* Ensures the menu takes up the full height */
-  background-color: black; /* Black background */
-  color: white;            /* White text */
-  z-index: 9;              /* Ensures it appears above other content */
+  position: fixed;
+  /* Fixes the element relative to the viewport */
+  top: 0;
+  /* Aligns the top edge of the menu to the top of the screen */
+  left: 0;
+  /* Aligns the left edge of the menu to the left of the screen */
+  width: 100%;
+  /* Ensures the menu takes up the full width */
+  height: 100%;
+  /* Ensures the menu takes up the full height */
+  background-color: black;
+  /* Black background */
+  color: white;
+  /* White text */
+  z-index: 9;
+  /* Ensures it appears above other content */
   display: flex;
   flex-direction: column;
   padding: 10px;
 }
 
 
-.mobile-menu a{
+.mobile-menu a {
   color: white;
 }
 
-.mobile-menu ul{
+.mobile-menu ul {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 100%;     
+  height: 100%;
 }
 
 
-main{
+main {
   min-height: 100vh;
 }
 
@@ -107,24 +119,69 @@ footer section {
   justify-content: space-evenly;
 }
 
-footer section{
+ul.social-media-links {
+  display: flex;
+  flex-direction: column; /* Aligns items vertically */
+  list-style: none; /* Removes default list styling */
+  padding: 0; /* Removes default padding */
+}
+
+ul.social-media-links li {
+  display: flex;
+  align-items: center; /* Vertically aligns items within each <li> */
+  margin-bottom: 10px; /* Optional, to add space between items */
+}
+
+ul.social-media-links li svg {
+  margin-right: 8px; /* Optional, to space out the icon and text */
+}
+
+footer section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-footer img{
+footer img {
+  width: auto;
+  height: 400px;
   margin: 10px 100px 10px 10px;
-  background-color: gray;
+  /* background-color: gray; */
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500;700&display=swap');
+
 a {
-  text-decoration: none;
-  color: black;
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  font-weight: 500; /* Medium weight */
+  text-decoration: none; /* Remove underline */
+  color: #495E57;
+  padding: 10px;
+  margin: 5px;
+  display: inline-block; /* Ensure padding and hover styles work predictably */
+  box-sizing: border-box; /* Include padding and border in element's size */
+  transition: all 0.3s ease; /* Smooth hover transitions */
 }
+
+a:hover {
+  background-color: #495E57;
+  box-shadow: 0 0 0 1px #F4CE14; /* Simulate border with shadow */
+  border-radius: 16px;
+  color: #F4CE14;
+}
+
+
 
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+h4 {
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  font-weight: 800; /* ExtraBold weight */
+  margin: 0; /* Optional: Adjust default margin */
 }
