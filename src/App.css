@@ -185,3 +185,8 @@ h4 {
   font-weight: 800; /* ExtraBold weight */
   margin: 0; /* Optional: Adjust default margin */
 }
+
+
+.hero{
+  background-color: #495E57;
+}
