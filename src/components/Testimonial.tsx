@@ -8,7 +8,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ data }) => <section className
     <div className="container">
         <h3>Testimonials</h3>
         <div className="testimonials-grid">
-            {data.map(item => <TestimonialCard rating={item.rating} imgSrc={item.imgSrc} name={item.name} text={item.text} />)}
+            {data.map(item => <TestimonialCard rating={item.rating} imgSrc={item.imgSrc} name={item.name} text={item.text} key={item.text}/>)}
         </div>
     </div>
 
