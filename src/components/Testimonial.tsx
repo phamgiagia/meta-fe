@@ -1,8 +1,14 @@
-import TestimonialCard from "./TestimonialCard";
+import TestimonialCard, { TestimonialCardProps } from "./TestimonialCard";
 
+type TestimonialProps = {
+    data: TestimonialCardProps[];
+}
 
-const Testimonial = () => <section>
-    <h2>Testimonials</h2>
-    <TestimonialCard/>
+const Testimonial: React.FC<TestimonialProps> = ({ data }) => <section>
+    <h1>Testimonials</h1>
+    <div className="testimonials-grid">
+        {data.map(item => <TestimonialCard rating={item.rating} imgSrc={item.imgSrc} name={item.name} text={item.text} />)}
+    </div>
+
 </section>
 export default Testimonial;
