@@ -289,15 +289,21 @@ h4 {
 
 @media (max-width: 768px) {
   .hero-rounded-image {
-    position: static; /* Remove absolute positioning */
-    width: 100%; /* Make it responsive */
-    height: 400px; /* Maintain aspect ratio */
-    margin: 0 auto; /* Center the image */
+    position: static;
+    /* Remove absolute positioning */
+    width: 100%;
+    /* Make it responsive */
+    height: 400px;
+    /* Maintain aspect ratio */
+    margin: 0 auto;
+    /* Center the image */
   }
 
   .hero-image-right {
-    flex-direction: column; /* Adjust layout for mobile */
-    align-items: center; /* Center content vertically */
+    flex-direction: column;
+    /* Adjust layout for mobile */
+    align-items: center;
+    /* Center content vertically */
   }
 
   .hero-content {
@@ -309,20 +315,98 @@ h4 {
   }
 }
 
-.dish-header{
+.dish-header {
   display: flex;
   flex-direction: row;
   align-content: space-between;
   margin-top: 150px;
 }
 
-.dish-header > h1{
+.dish-header>h1 {
   flex: 1;
   color: #495E57;
 }
 
 @media (max-width: 768px) {
-  .dish-header{
+  .dish-header {
     flex-direction: column;
   }
+}
+
+.testimonials-section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #495E57;
+}
+
+.testimonials-section h3 {
+  color: #F4CE14;
+  text-align: center;
+  /* Centers the text horizontally */
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.testimonial-card {
+  background-color: gainsboro;
+  padding: 0 20px;
+}
+
+.user-testimonial,
+.user-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-testimonial h4 {
+  padding: 0 10px;
+}
+
+.dish-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  margin-top: 30px;
+}
+
+.dish-card-content {
+  background-color: lightgray;
+  padding: 10px 30px;
+}
+
+.dish-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.dish-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.order-delivery {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+}
+
+.order-delivery svg {
+  padding: 0 10px;
+}
+
+.dish-card-header h5 {
+  flex: 1;
 }

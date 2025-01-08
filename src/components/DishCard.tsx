@@ -6,10 +6,14 @@ export type DishCardProps = {
     imageSrc: string;
 }
 
-const DishCard: React.FC<DishCardProps> = ({ title, price, content, imageSrc }) => <>
-    <img src={imageSrc} alt={title} height={100}/>
+const DishCard: React.FC<DishCardProps> = ({ title, price, content, imageSrc }) => <div className="dish-card">
+    <img src={imageSrc} alt={title}/>
+    <div className="dish-card-content">
+    <div className="dish-card-header">
     <h5 className="card-title">{title}</h5>
     <span className="card-price">{price}</span>
+    </div>
+    
     <p className="card-detail">{content}</p>
     <a href="/order" className="order-delivery">
         <span>
@@ -20,5 +24,7 @@ const DishCard: React.FC<DishCardProps> = ({ title, price, content, imageSrc }) 
             <path fill="currentColor" d="M5 6h5v2H5zm14 7c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3m0 4c-.55 0-1-.45-1-1s.45-1 1-1s1 .45 1 1s-.45 1-1 1"></path>
         </svg>
     </a>
-</>
+    </div>
+    
+</div>
 export default DishCard;
