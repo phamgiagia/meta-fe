@@ -1,4 +1,4 @@
-body {
+.container {
   margin: auto;
   /* display: grid; */
   width: 66.67%;
@@ -39,7 +39,7 @@ nav>ul {
     display: flex;
   }
 
-  body {
+  .container {
     margin: auto;
     /* display: grid; */
     width: 100%;
@@ -103,37 +103,37 @@ nav>ul {
   height: 100%;
 }
 
-
-main {
-  min-height: 100vh;
-}
-
 footer {
   display: flex;
 }
 
 footer section {
   display: flex;
-  /* width: 100%; */
   flex-grow: 1;
   justify-content: space-evenly;
 }
 
 ul.social-media-links {
   display: flex;
-  flex-direction: column; /* Aligns items vertically */
-  list-style: none; /* Removes default list styling */
-  padding: 0; /* Removes default padding */
+  flex-direction: column;
+  /* Aligns items vertically */
+  list-style: none;
+  /* Removes default list styling */
+  padding: 0;
+  /* Removes default padding */
 }
 
 ul.social-media-links li {
   display: flex;
-  align-items: center; /* Vertically aligns items within each <li> */
-  margin-bottom: 10px; /* Optional, to add space between items */
+  align-items: center;
+  /* Vertically aligns items within each <li> */
+  margin-bottom: 10px;
+  /* Optional, to add space between items */
 }
 
 ul.social-media-links li svg {
-  margin-right: 8px; /* Optional, to space out the icon and text */
+  margin-right: 8px;
+  /* Optional, to space out the icon and text */
 }
 
 footer section {
@@ -155,19 +155,25 @@ footer img {
 a {
   font-family: 'Karla', sans-serif;
   font-size: 18px;
-  font-weight: 500; /* Medium weight */
-  text-decoration: none; /* Remove underline */
+  font-weight: 500;
+  /* Medium weight */
+  text-decoration: none;
+  /* Remove underline */
   color: #495E57;
   padding: 10px;
   margin: 5px;
-  display: inline-block; /* Ensure padding and hover styles work predictably */
-  box-sizing: border-box; /* Include padding and border in element's size */
-  transition: all 0.3s ease; /* Smooth hover transitions */
+  display: inline-block;
+  /* Ensure padding and hover styles work predictably */
+  box-sizing: border-box;
+  /* Include padding and border in element's size */
+  transition: all 0.3s ease;
+  /* Smooth hover transitions */
 }
 
 a:hover {
   background-color: #495E57;
-  box-shadow: 0 0 0 1px #F4CE14; /* Simulate border with shadow */
+  box-shadow: 0 0 0 1px #F4CE14;
+  /* Simulate border with shadow */
   border-radius: 16px;
   color: #F4CE14;
 }
@@ -179,14 +185,136 @@ ul {
   padding: 0;
 }
 
-h4 {
-  font-family: 'Karla', sans-serif;
-  font-size: 20px;
-  font-weight: 800; /* ExtraBold weight */
-  margin: 0; /* Optional: Adjust default margin */
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;600;700&display=swap');
+
+h1 {
+  font-family: 'Markazi Text', serif;
+  font-size: 64px;
+  font-weight: 500;
+  /* Medium weight */
+  margin: 0;
+  /* Optional: Adjust default margin */
+  color: #F4CE14;
+}
+
+h2 {
+  font-family: 'Markazi Text', serif;
+  font-size: 40px;
+  font-weight: 400;
+  /* Medium weight */
+  margin: 0;
+  /* Optional: Adjust default margin */
+  color: white;
+}
+
+.cta-text {
+  font-family: 'Markazi Text', serif;
+  font-size: 18px;
+  font-weight: 500;
+  /* Medium weight */
+  margin: 0;
+  /* Optional: Adjust default margin */
+  color: white;
+  width: 50%;
 }
 
 
-.hero{
+h3 {
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  /* ExtraBold weight */
+  margin: 0;
+  /* Optional: Adjust default margin */
+}
+
+
+h4 {
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  /* ExtraBold weight */
+  margin: 0;
+  /* Optional: Adjust default margin */
+}
+
+
+.hero {
   background-color: #495E57;
+  /* margin-top: -20px; */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 0px 10px 0px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.hero-content>div {
+  flex: 1;
+}
+
+.action-button {
+  background-color: #F4CE14;
+  color: #495E57;
+  border-radius: 16px;
+  border: 0 0 0 1px #F4CE14;
+  /* Simulate border with shadow */
+  padding: 10px 20px;
+  margin: 10px 0px;
+  font-weight: 700;
+}
+
+.hero-rounded-image {
+  border-radius: 16px;
+  position: absolute;
+  /* Overlay should cover the parent element */
+  top: 0;
+  right: 0;
+  object-fit: cover;
+}
+
+.hero-image-right {
+  display: flex;
+  /* Use flexbox */
+  justify-content: center;
+  /* Center content horizontally */
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .hero-rounded-image {
+    position: static; /* Remove absolute positioning */
+    width: 100%; /* Make it responsive */
+    height: 400px; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image */
+  }
+
+  .hero-image-right {
+    flex-direction: column; /* Adjust layout for mobile */
+    align-items: center; /* Center content vertically */
+  }
+
+  .hero-content {
+    flex-direction: column;
+  }
+
+  .hero-content>div {
+    padding: 10px;
+  }
+}
+
+.dish-header{
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  margin-top: 150px;
+}
+
+.dish-header > h1{
+  flex: 1;
+  color: #495E57;
 }

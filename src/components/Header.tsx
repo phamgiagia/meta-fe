@@ -1,7 +1,7 @@
 import Nav from "./Nav";
 import NavMobile from "./NavMobile";
 
-const Header = ()=><header>
+const Header = ()=><header className="container">
     <meta name="description" content="Little Lemon Restaurant, best restaurant for food lover."/>
     <meta name="og:title" content="Little Lemon Restaurant"/>
     <meta name="og:description" content="Little Lemon Restaurant, best restaurant for food lover."/>

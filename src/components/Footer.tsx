@@ -2,7 +2,7 @@ import { contact, nav, social } from "../data/nav";
 
 const Footer = () => {
 
-    return <footer>
+    return <footer className="container">
         <img src="/assets/llver.png" alt="Little Lemon Logo" />
         <section>
             <h4>
