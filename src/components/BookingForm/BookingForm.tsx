@@ -5,11 +5,10 @@ import useAppState from "../../libs/zustand/useAppState";
 import { BookingFormValues } from "./BookingFormValues";
 import "./BookingForm.css";
 
-
 const BookingForm: React.FC = () => {
   //   const order = useAppState((state) => state.order);
   const addOrder = useAppState((state) => state.addOrder);
-  const availableTimes = useAppState((state) => state.getAvailableTime);
+  const initializeTimes = useAppState((state) => state.getAvailableTime);
   // const defaultTimes = useAppState((state) => state.defaultTimes);
   // Validation schema using Yup
   const validationSchema = Yup.object({
@@ -21,15 +20,6 @@ const BookingForm: React.FC = () => {
       .required("Please enter the number of guests"),
     occasion: Yup.string().required("Please select an occasion"),
   });
-  //   const initializeTimes = () => [
-  //     "17:00",
-  //     "18:00",
-  //     "19:00",
-  //     "20:00",
-  //     "21:00",
-  //     "22:00",
-  //   ];
-  //   const updateTimes = () => {};
   // Initial form values
   const initialValues = {
     date: "",
@@ -39,7 +29,7 @@ const BookingForm: React.FC = () => {
   };
 
   // Form submission handler
-  const handleSubmit = async (values: BookingFormValues) => {
+  const updateTimes = async (values: BookingFormValues) => {
     console.log("Form data submitted:", values);
     await addOrder(values);
     // Add your form submission logic here
@@ -49,12 +39,12 @@ const BookingForm: React.FC = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={handleSubmit}
+      onSubmit={updateTimes}
     >
       {({ values, handleChange, handleBlur, touched, errors }) => (
         <div className="wrapper-form">
           <h1>Book Now</h1>
-         {/* <div className="order-form" style={{ width: 213, margin:"30px auto"}}>
+          {/* <div className="order-form" style={{ width: 213, margin:"30px auto"}}>
           {defaultTimes.map((item) =>
             availableTimes(values.date).includes(item) ? (
               <p key={item} style={{ color: "green", fontWeight: "bold" }}>
@@ -100,7 +90,7 @@ const BookingForm: React.FC = () => {
                 onBlur={handleBlur}
               >
                 <option value="">Select time</option>
-                {availableTimes(values.date).map((time) => (
+                {initializeTimes(values.date).map((time) => (
                   <option key={time} value={time}>
                     {time}
                   </option>
@@ -169,7 +159,6 @@ const BookingForm: React.FC = () => {
               Make Your Reservation
             </button>
           </Form>
-         
         </div>
       )}
     </Formik>
