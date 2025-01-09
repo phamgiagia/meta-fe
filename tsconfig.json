@@ -13,7 +13,8 @@
       },
       "resolveJsonModule": true,             // Support importing JSON files
       "esModuleInterop": true,               // Handle CommonJS modules
-      "skipLibCheck": true                   // Skip type checking of node_modules
+      "skipLibCheck": true,                  // Skip type checking of node_modules
+      "forceConsistentCasingInFileNames": true // Ensure consistent casing in file names
     },
     "include": ["src"],                      // Files to include in the project
     "exclude": ["node_modules"]              // Exclude unnecessary files
