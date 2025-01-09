@@ -1,7 +1,7 @@
 import React from "react";
-import { OrderFormValues } from "./OrderForm";
+import { BookingFormValues } from "./BookingForm";
 
-const BookingSlot: React.FC<OrderFormValues> = ({
+const BookingSlot: React.FC<BookingFormValues> = ({
   date,
   time,
   guests,

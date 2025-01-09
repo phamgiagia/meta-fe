@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./App.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
@@ -10,10 +10,7 @@ import {
   Route,
   Outlet,
 } from "react-router-dom";
-import OrderForm from "./components/OrderForm";
-import useAppState from "./libs/zustand/useAppState";
-import BookingSlot from "./components/BookingSlot";
-import AvailableSlot from "./components/AvailableSlot";
+import OrderForm from "./components/BookingForm";
 
 function RestaurantApp() {
   return (
@@ -36,7 +33,6 @@ function RestaurantAppLayout() {
 }
 
 const App = () => {
-  const order = useAppState((state) => state.order);
   return (
     <Router>
       <Routes>
@@ -47,19 +43,6 @@ const App = () => {
             element={
               <>
                 <OrderForm />
-                {order.map((item) => {
-                  return item.guests ? (
-                    <BookingSlot
-                      date={item.date}
-                      time={item.time}
-                      guests={item.guests}
-                      occasion={item.occasion}
-                      key={item.time + item.date}
-                    />
-                  ) : (
-                    <AvailableSlot time={item.time} />
-                  );
-                })}
               </>
             }
           />
