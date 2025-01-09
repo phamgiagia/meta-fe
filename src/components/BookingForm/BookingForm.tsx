@@ -1,14 +1,21 @@
 import React from "react";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import useAppState from "../../libs/zustand/useAppState";
+// import useAppState from "../../libs/zustand/useAppState";
 import { BookingFormValues } from "./BookingFormValues";
 import "./BookingForm.css";
-
+import { fetchAPI, submitAPI } from "./api";
+import { useNavigate } from "react-router-dom";
+import BookingFormHeading from "./BookingFormHeading";
 const BookingForm: React.FC = () => {
+  const navigate = useNavigate();
   //   const order = useAppState((state) => state.order);
-  const addOrder = useAppState((state) => state.addOrder);
-  const initializeTimes = useAppState((state) => state.getAvailableTime);
+  // const addOrder = useAppState((state) => state.addOrder);
+  // const initializeTimes = useAppState((state) => state.getAvailableTime);
+  const initializeTimes = (date: string) => {
+    console.log(date);
+    return fetchAPI(date ? new Date(date) : new Date());
+  };
   // const defaultTimes = useAppState((state) => state.defaultTimes);
   // Validation schema using Yup
   const validationSchema = Yup.object({
@@ -29,12 +36,19 @@ const BookingForm: React.FC = () => {
   };
 
   // Form submission handler
+  // const updateTimes = async (values: BookingFormValues) => {
+  //   console.log("Form data submitted:", values);
+  //   await addOrder(values);
+  //   // Add your form submission logic here
+  // };
+
   const updateTimes = async (values: BookingFormValues) => {
     console.log("Form data submitted:", values);
-    await addOrder(values);
-    // Add your form submission logic here
+    const response = await submitAPI(values);
+    if (response === true) {
+      navigate("/confirmation");
+    }
   };
-
   return (
     <Formik
       initialValues={initialValues}
@@ -43,7 +57,7 @@ const BookingForm: React.FC = () => {
     >
       {({ values, handleChange, handleBlur, touched, errors }) => (
         <div className="wrapper-form">
-          <h1>Book Now</h1>
+          <BookingFormHeading title="Book Now"/>
           {/* <div className="order-form" style={{ width: 213, margin:"30px auto"}}>
           {defaultTimes.map((item) =>
             availableTimes(values.date).includes(item) ? (
@@ -90,6 +104,11 @@ const BookingForm: React.FC = () => {
                 onBlur={handleBlur}
               >
                 <option value="">Select time</option>
+                {/* {initializeTimes(values.date).map((time) => (
+                  <option key={time} value={time}>
+                    {time}
+                  </option>
+                ))} */}
                 {initializeTimes(values.date).map((time) => (
                   <option key={time} value={time}>
                     {time}

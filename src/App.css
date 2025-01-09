@@ -535,3 +535,17 @@ a.action-button:hover {
   transform: translate(40%, 0%); /* Adjust positioning as needed */
   object-fit: cover;
 }
+
+/* ConfirmationBooking.css */
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.confirmation h1 {
+  color: black;
+}

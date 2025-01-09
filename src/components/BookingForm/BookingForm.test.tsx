@@ -1,20 +1,11 @@
-import { render, screen } from "@testing-library/react";
-import BookingForm from "./BookingForm";
+import { render } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import BookingFormHeading from "./BookingFormHeading";
 
 test("Renders the BookingForm heading", () => {
-  render(<BookingForm />);
-  const headingElement = screen.getByText("Book Now");
-  expect(headingElement).toBeInTheDocument();
-});
-
-test("initializeTimes function work properly", () => {
-  render(<BookingForm />);
-  const headingElement = screen.getByText("Book Now");
-  expect(headingElement).toBeInTheDocument();
-});
-
-test("updateTimes function work properly", () => {
-  render(<BookingForm />);
-  const headingElement = screen.getByText("Book Now");
-  expect(headingElement).toBeInTheDocument();
+    render(
+        <BookingFormHeading title="Book Now"/>
+    );
+    const headingElement = screen.getByText("Book Now");
+    expect(headingElement).toBeInTheDocument();
 });

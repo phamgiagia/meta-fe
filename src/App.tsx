@@ -11,6 +11,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import OrderForm from "./components/BookingForm";
+import ConfirmationBooking from "./components/ConfirmationBooking";
 
 function RestaurantApp() {
   return (
@@ -43,6 +44,14 @@ const App = () => {
             element={
               <>
                 <OrderForm />
+              </>
+            }
+          />
+          <Route
+            path="/confirmation"
+            element={
+              <>
+                <ConfirmationBooking />
               </>
             }
           />
