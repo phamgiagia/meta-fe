@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { BookingFormValues } from "./BookingFormValues";
 import "./BookingForm.css";
 import { fetchAPI, submitAPI } from "./api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import BookingFormHeading from "./BookingFormHeading";
 const BookingForm: React.FC = () => {
   const navigate = useNavigate();

@@ -1,11 +1,14 @@
-import { render } from "@testing-library/react";
-import { screen } from "@testing-library/react";
-import BookingFormHeading from "./BookingFormHeading";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router";
+import BookingForm from "./BookingForm";
 
-test("Renders the BookingForm heading", () => {
+test("Booking Component renders the BookingForm heading", () => {
     render(
-        <BookingFormHeading title="Book Now"/>
+        <BrowserRouter>
+            <BookingForm />
+        </BrowserRouter>
     );
+    
     const headingElement = screen.getByText("Book Now");
     expect(headingElement).toBeInTheDocument();
 });
