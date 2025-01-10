@@ -1,54 +1,61 @@
 import React from "react";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { BookingFormValues } from "./BookingFormValues";
-import "./BookingForm.css";
-import { fetchAPI, submitAPI } from "./api";
 import { useNavigate } from "react-router";
 import BookingFormHeading from "./BookingFormHeading";
+import { fetchAPI, submitAPI } from "./api";
+import "./BookingForm.css";
 
-const BookingForm: React.FC = () => {
+// Define types
+interface BookingFormValues {
+  date: string;
+  time: string;
+  guests: number;
+  occasion: string;
+}
+
+interface BookingFormProps {
+  availableTimes: string[];
+  onDateChange: (date: string) => void;
+}
+
+const validationSchema = Yup.object({
+  date: Yup.string().required("Please choose a date"),
+  time: Yup.string().required("Please choose a time"),
+  guests: Yup.number()
+    .min(1, "Must have at least 1 guest")
+    .max(10, "Maximum 10 guests allowed")
+    .required("Please enter the number of guests"),
+  occasion: Yup.string().required("Please select an occasion"),
+});
+
+const initialValues: BookingFormValues = {
+  date: "",
+  time: "",
+  guests: 1,
+  occasion: "",
+};
+
+const BookingForm: React.FC<BookingFormProps> = ({ availableTimes, onDateChange }) => {
   const navigate = useNavigate();
 
-  const initializeTimes = (date: string) => {
-    console.log(date);
-    return fetchAPI(date ? new Date(date) : new Date());
-  };
-
-  const validationSchema = Yup.object({
-    date: Yup.string().required("Please choose a date"),
-    time: Yup.string().required("Please choose a time"),
-    guests: Yup.number()
-      .min(1, "Must have at least 1 guest")
-      .max(10, "Maximum 10 guests allowed")
-      .required("Please enter the number of guests"),
-    occasion: Yup.string().required("Please select an occasion"),
-  });
-
-  const initialValues = {
-    date: "",
-    time: "",
-    guests: 1,
-    occasion: "",
-  };
-
-  const updateTimes = async (values: BookingFormValues) => {
+  const handleSubmit = async (values: BookingFormValues) => {
     console.log("Form data submitted:", values);
     const response = await submitAPI(values);
-    if (response === true) {
+    if (response) {
       navigate("/confirmation");
     }
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={updateTimes}
-    >
-      {({ values, handleChange, handleBlur, touched, errors }) => (
-        <section className="wrapper-form">
-          <BookingFormHeading title="Book Now" />
+    <section className="wrapper-form">
+      <BookingFormHeading title="Book Now" />
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ values, handleChange, handleBlur }) => (
           <Form className="order-form" aria-labelledby="booking-form-heading">
             <fieldset>
               <legend id="booking-form-heading">Booking Form</legend>
@@ -61,7 +68,10 @@ const BookingForm: React.FC = () => {
                   id="date"
                   name="date"
                   value={values.date}
-                  onChange={handleChange}
+                  onChange={(e) => {
+                    handleChange(e);
+                    onDateChange(e.target.value);
+                  }}
                   onBlur={handleBlur}
                   aria-required="true"
                 />
@@ -84,7 +94,7 @@ const BookingForm: React.FC = () => {
                   aria-required="true"
                 >
                   <option value="">Select time</option>
-                  {initializeTimes(values.date).map((time) => (
+                  {availableTimes.map((time) => (
                     <option key={time} value={time}>
                       {time}
                     </option>
@@ -151,10 +161,27 @@ const BookingForm: React.FC = () => {
               </button>
             </fieldset>
           </Form>
-        </section>
-      )}
-    </Formik>
+        )}
+      </Formik>
+    </section>
   );
 };
 
-export default BookingForm;
+// Parent component to manage state
+const BookingFormApp: React.FC = () => {
+  const [availableTimes, setAvailableTimes] = React.useState<string[]>([]);
+
+  const handleDateChange = (date: string) => {
+    const times = fetchAPI(date ? new Date(date) : new Date());
+    setAvailableTimes(times);
+  };
+
+  React.useEffect(() => {
+    // Initialize with current date's times
+    handleDateChange(new Date().toISOString().split('T')[0]);
+  }, []);
+
+  return <BookingForm availableTimes={availableTimes} onDateChange={handleDateChange} />;
+};
+
+export default BookingFormApp;
